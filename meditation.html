@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meditation App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #1a1f36, #2e3a59);
+      color: white;
+      text-align: center;
+      padding: 40px;
+    }
+    select, button {
+      margin: 10px;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+    button {
+      background: #6c63ff;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #5548d9;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎵 Meditation Mood Library</h1>
+  <p>Select a mood to play:</p>
+  
+  <select id="musicSelect" onchange="playMusic(this.value)">
+    <option value="">-- Choose Mood --</option>
+    <option value="calm">🌊 Calm Waves</option>
+    <option value="focus">🧠 Deep Focus</option>
+    <option value="zen">☯️ Zen Meditation</option>
+    <option value="mood1">✨ My Drive Track</option>
+  </select>
+  
+  <!-- Hidden audio elements -->
+  <audio id="calm" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+  <audio id="focus" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"></audio>
+  <audio id="zen" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"></audio>
+  <audio id="mood1" src="https://docs.google.com/uc?export=download&id=1YHgsbE1ZDwjcHvu_Rgau9a7T2Hb1RvY0"></audio>
+  
+  <script>
+    function playMusic(choice) {
+      document.querySelectorAll("audio").forEach(a => {
+        a.pause();
+        a.currentTime = 0;
+      });
+      if (choice) {
+        const audio = document.getElementById(choice);
+        if (audio) audio.play();
+      }
+    }
+  </script>
+</body>
+</html>
